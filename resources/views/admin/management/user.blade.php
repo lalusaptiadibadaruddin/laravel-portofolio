@@ -83,15 +83,7 @@
                             <input type="text" id="nameEdit" name="name" class="form-control" required />
                         </div>
 
-                        <div class="form-group pb-2">
-                            <label for="title" class="pb-1">Title</label>
-                            <input type="text" id="titleEdit" name="title" class="form-control" required />
-                        </div>
 
-                        <div class="form-group pb-2">
-                            <label for="title" class="pb-1">Description</label>
-                            <input type="text" id="descriptionEdit" name="description" class="form-control" required />
-                        </div>
 
                         <div class="form-group pb-2">
                             <label for="email" class="pb-1">Email</label>
@@ -99,10 +91,9 @@
                         </div>
 
                         <div class="form-group pb-2">
-                            <label for="image" class="form-label">Image Plants</label>
-                            <img class="img-previewEdit img-fluid mb-3 col-sm-5 d-block">
-                            <input class="form-control" type="file" id="imageEdit" name="image"
-                                onchange="previewImageEdit()">
+                            <label for="password" class="pb-1">Password</label>
+                            <input type="password" name="password" id="passwordEdit" class="form-control"
+                                placeholder="password" required />
                         </div>
 
 
