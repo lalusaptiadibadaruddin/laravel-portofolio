@@ -51,6 +51,15 @@
                         </div>
 
                         <div class="form-group pb-2">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" name="role" id="role"  required aria-label="Default select example">
+                                <option value="">Select One</option>
+                                <option value="1">Admin</option>
+                                <option value="2">User</option>
+                              </select>
+                          </div>
+
+                        <div class="form-group pb-2">
                             <label for="password" class="pb-1">Password</label>
                             <input type="password" name="password" id="password" class="form-control"
                                 placeholder="password" required />
@@ -89,6 +98,16 @@
                             <label for="email" class="pb-1">Email</label>
                             <input type="email" id="emailEdit" name="email" class="form-control" required />
                         </div>
+
+                        <div class="form-group pb-2">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" name="role" id="role"  required aria-label="Default select example">
+                                <option value="">Select One</option>
+                                <option value="1">Admin</option>
+                                <option value="2">User</option>
+
+                              </select>
+                          </div>
 
                         <div class="form-group pb-2">
                             <label for="password" class="pb-1">Password</label>

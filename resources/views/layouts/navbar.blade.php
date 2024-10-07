@@ -87,9 +87,8 @@
 
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/login">Logout</a>
-              </li>
-
+                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+            </li>
         </ul>
 
       </div>
