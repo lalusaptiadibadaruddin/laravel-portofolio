@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuItem;
 use App\Models\SkillType;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,11 @@ class SkillController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         return view('admin.master.skill', [
             'title' => 'Skill Type',
             'subtitle' => 'List Skill Type',
+            'menuItem' => $menu,
         ]);
     }
 

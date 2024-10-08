@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\listSkill;
 use App\Models\Profile;
+use App\Models\MenuItem;
+use App\Models\listSkill;
 use App\Models\SkillType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,7 @@ class listSkillController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         $listProfile = Profile::all();
         $listSkill = SkillType::all();
         return view('admin.biodata.listSkill', [
@@ -22,6 +24,7 @@ class listSkillController extends Controller
             'listSkill' => $listSkill,
             'title' => 'Skills',
             'subtitle' => 'List Skills',
+            'menuItem' => $menu,
         ]);
     }
 

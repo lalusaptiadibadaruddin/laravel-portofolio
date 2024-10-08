@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
+use App\Models\MenuItem;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -13,11 +14,13 @@ class ExperienceController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         $listProfile = Profile::all();
         return view('admin.biodata.experience', [
             'listProfile' => $listProfile,
             'title' => 'Experience',
             'subtitle' => 'List Experience',
+            'menuItem' => $menu,
         ]);
     }
 

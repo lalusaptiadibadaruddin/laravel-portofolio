@@ -50,39 +50,29 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        @foreach($menuItem as $menuItemx)
+        @if ($menuItemx->title =='Home')
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{ route($menuItemx->url ) }}">{{ $menuItemx->title  }}</a>
           </li>
+        @else
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   {{ $menuItemx->title }}
+                </a>
+                @if($menuItemx->children->count())
+                <ul class="dropdown-menu">
+                    @foreach($menuItemx->children as $child)
+                        <li><a class="dropdown-item" href="{{ route($child->url) }}">{{ $child->title }}</a></li>
+                    @endforeach
+                </ul>
+                @endif
+            </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Master
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('skill') }}">Skill</a></li>
-              <li><a class="dropdown-item" href="{{ route('contact') }}">Media Social</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Biographical Data
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
-              <li><a class="dropdown-item" href="{{ route('experience') }}">Experience</a></li>
-              <li><a class="dropdown-item" href="{{ route('listSkill') }}">List Skill</a></li>
-              <li><a class="dropdown-item" href="{{ route('contact') }}">Contact</a></li>
-              <li><a class="dropdown-item" href="{{ route('interest') }}">Interest</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Management
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{ route('user') }}"">User</a></li>
-            </ul>
-          </li>
+        @endif
+
+          @endforeach
+
         </ul>
 
         <ul class="navbar-nav">

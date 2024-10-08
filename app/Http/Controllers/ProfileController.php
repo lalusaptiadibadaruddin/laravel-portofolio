@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuItem;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,11 +15,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         $listUser = User::all();
         return view('admin.biodata.profile', [
             'listUser' => $listUser,
             'title' => 'Profile',
             'subtitle' => 'List Profile',
+            'menuItem' => $menu,
         ]);
     }
 

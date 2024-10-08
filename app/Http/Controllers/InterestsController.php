@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Interests;
 use App\Models\Profile;
+use App\Models\MenuItem;
+use App\Models\Interests;
 use Illuminate\Http\Request;
 
 class InterestsController extends Controller
@@ -13,11 +14,13 @@ class InterestsController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         $listProfile = Profile::all();
         return view('admin.biodata.interest', [
             'listProfile' => $listProfile,
             'title' => 'Interest',
             'subtitle' => 'List Interest',
+            'menuItem' => $menu,
         ]);
     }
 

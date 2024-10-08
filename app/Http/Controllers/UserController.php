@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuItem;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,11 @@ class UserController extends Controller
     public function index()
     {
         //
+        $menu = MenuItem::whereNull('parent_id')->get();
         return view('admin.management.user', [
             'title' => 'User',
             'subtitle' => 'List User',
+            'menuItem' => $menu,
         ]);
     }
 
@@ -42,6 +45,7 @@ class UserController extends Controller
         $validateData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required',
+            'role_id' => 'required',
             'password' => 'required',
         ]);
 
@@ -84,6 +88,7 @@ class UserController extends Controller
         $rules = [
             'name' => 'required|max:255',
             'email' => 'required',
+            'role_id' => 'required',
             'password' => 'required',
         ];
 

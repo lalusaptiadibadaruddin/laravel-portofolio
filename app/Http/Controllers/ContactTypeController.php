@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactType;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 
 class ContactTypeController extends Controller
@@ -12,9 +13,11 @@ class ContactTypeController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         return view('admin.master.contact', [
             'title' => 'Contact Type',
             'subtitle' => 'List Contact Type',
+            'menuItem' => $menu,
         ]);
     }
 

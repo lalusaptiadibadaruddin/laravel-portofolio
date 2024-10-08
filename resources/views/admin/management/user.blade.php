@@ -52,7 +52,7 @@
 
                         <div class="form-group pb-2">
                             <label for="role" class="form-label">Role</label>
-                            <select class="form-select" name="role" id="role"  required aria-label="Default select example">
+                            <select class="form-select" name="role_id" id="role_id"  required aria-label="Default select example">
                                 <option value="">Select One</option>
                                 <option value="1">Admin</option>
                                 <option value="2">User</option>
@@ -101,7 +101,7 @@
 
                         <div class="form-group pb-2">
                             <label for="role" class="form-label">Role</label>
-                            <select class="form-select" name="role" id="role"  required aria-label="Default select example">
+                            <select class="form-select" name="role_id" id="roleEdit"  required aria-label="Default select example">
                                 <option value="">Select One</option>
                                 <option value="1">Admin</option>
                                 <option value="2">User</option>
@@ -231,6 +231,7 @@
                     success: function(response) {
                         $("#nameEdit").val(response.name);
                         $("#emailEdit").val(response.email);
+                        $("#roleEdit").val(response.role_id);
                         $("#passwordEdit").val('');
                         $("#idEdit").val(response.id);
                     }

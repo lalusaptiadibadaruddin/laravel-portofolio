@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\MediaSocial;
+use App\Models\MenuItem;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $menu = MenuItem::whereNull('parent_id')->get();
         $listProfile = Profile::all();
         $listSocial = MediaSocial::all();
         return view('admin.biodata.contact', [
@@ -21,6 +23,7 @@ class ContactController extends Controller
             'listSocial' => $listSocial,
             'title' => 'Contact',
             'subtitle' => 'List Contact',
+            'menuItem' => $menu,
         ]);
     }
 
