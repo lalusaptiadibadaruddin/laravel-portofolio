@@ -52,12 +52,6 @@ class MenuItemSeeder extends Seeder
         ]);
 
         MenuItem::create([
-            'title' => 'Experience',
-            'url' => 'experience',
-            'parent_id' => $biodata->id,
-        ]);
-
-        MenuItem::create([
             'title' => 'List Skill',
             'url' => 'listSkill',
             'parent_id' => $biodata->id,
